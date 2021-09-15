@@ -17,19 +17,31 @@
 <body>
     <h1>Cadastramento para o evento.</h1>
     <script>
-        window.alert('Inicio')
-        var data_do_evento =  parseInt(prompt("Informe o dia do evento: ")); 
-        var data_do_evento_mes = parseInt(prompt("Informe o mes do evento: "));
-        var data = new Date();
-        var data_mes = data.getMonth();
-        if (data_do_evento_mes < data_mes ){
-        window.alert("Não sera possivel se cadastrar, data do evento já ultrapassada.")
-        } else {
-            var idade = parseInt(prompt("Informe a sua idade: "));
-            if(idade >= 18){
-                window.alert("Cadastro permitido.! ")
+        let lista_participantes = []
+        let lista_palestrante  = []
+        var people = 0
+        while(lista_participantes.length < 100){
+            window.alert('Inicio')
+            var data_do_evento =  parseInt(prompt("Informe o dia do evento: ")); 
+            var data_do_evento_mes = parseInt(prompt("Informe o mes do evento: "));
+            var data = new Date();
+            var data_mes = data.getMonth();
+            if (data_do_evento_mes < data_mes ){
+            window.alert("Não sera possivel se cadastrar, data do evento já ultrapassada.")
             } else {
-                window.alert("Cadastro negado, permitido apenas para maiores de 18 anos.")
+                var idade = parseInt(prompt("Informe a sua idade: "));
+                if(idade >= 18){
+                    let nome = parseint(prompt("Digite seu nome: "));
+                    let participante = parseint(prompt("Voce é um participante [S/N]: "));
+                    if (participante.substr(1) == "Ss"){
+                        lista_participantes.push(nome, idade)
+                        window.alert(lista_participantes)
+
+                    }
+
+              } else {
+                    window.alert("Cadastro negado, permitido apenas para maiores de 18 anos.")
+                }
             }
         }
     </script>
