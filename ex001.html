@@ -41,6 +41,7 @@
             if(idade >= 18){
             let nome = prompt("Digite seu nome: ");
             let participante = (prompt("Voce é um participante [S/N]: "));
+            window.alert('Você foi cadastrado com sucesso, so aguardar a data do evento ' + nome[0].toUpperCase() + nome.substr(1) )
             if (participante.substr(1) == "Ss"){
                 lista_participantes.push(nome);
             } else {
