@@ -7,7 +7,7 @@
     <title>Meu primeiro arquivo</title>
     <style>
         body {
-            background-color: rgb(105, 105, 173);
+            background-color: rgb(13, 13, 187);
             color: white;
             font: normal 20pt Arial;
         }
@@ -17,33 +17,40 @@
 <body>
     <h1>Cadastramento para o evento.</h1>
     <script>
-        let lista_participantes = []
-        let lista_palestrante  = []
-        var people = 0
-        while(lista_participantes.length < 100){
-            window.alert('Inicio')
-            var data_do_evento =  parseInt(prompt("Informe o dia do evento: ")); 
-            var data_do_evento_mes = parseInt(prompt("Informe o mes do evento: "));
-            var data = new Date();
-            var data_mes = data.getMonth();
-            if (data_do_evento_mes < data_mes ){
-            window.alert("Não sera possivel se cadastrar, data do evento já ultrapassada.")
+        let lista_participantes = [];
+        let lista_palestrante  = [];
+        window.alert('Inicio');
+        let data_do_evento_dia =  parseInt(prompt("Informe o dia do evento: ")); 
+        let data_do_evento_mes = parseInt(prompt("Informe o mes do evento: "));
+        let data_ano_do_evento = parseInt(prompt("Informe o ano do evento: "));
+        let data = new Date();
+        let data_mes = data.getMonth() + 1;
+        let data_dia = data.getDate();
+        let data_ano = data.getFullYear(); 
+        let verificacaoMes = data_do_evento_mes < data_mes;
+        let verificacaoDiaAtual = data_do_evento_dia < data_dia;
+        let verificacaoAnoAtual = data_ano_do_evento < data_ano;
+        if(verificacaoAnoAtual){
+            window.alert("Não sera possivel se cadastrar, ano do evento já ultrapassada.");
+        } if ( verificacaoMes){
+            window.alert("Não sera possivel se cadastrar, mês do evento já ultrapassado.");
+        } if(data_do_evento_mes == data_mes && verificacaoDiaAtual ){
+                window.alert("Não sera possivel se cadastrar, dia do evento já ultrapassado.");
+        } else {
+            var idade = parseInt(prompt("Informe a sua idade: "));
+            if(idade >= 18){
+            let nome = prompt("Digite seu nome: ");
+            let participante = (prompt("Voce é um participante [S/N]: "));
+            if (participante.substr(1) == "Ss"){
+                lista_participantes.push(nome);
             } else {
-                var idade = parseInt(prompt("Informe a sua idade: "));
-                if(idade >= 18){
-                    let nome = parseint(prompt("Digite seu nome: "));
-                    let participante = parseint(prompt("Voce é um participante [S/N]: "));
-                    if (participante.substr(1) == "Ss"){
-                        lista_participantes.push(nome, idade)
-                        window.alert(lista_participantes)
-
-                    }
-
-              } else {
-                    window.alert("Cadastro negado, permitido apenas para maiores de 18 anos.")
-                }
+                lista_palestrante.push(nome);
             }
+        } else {
+            window.alert("Cadastro negado, permitido apenas para maiores de 18 anos.");
         }
+
+    } 
     </script>
 </body>
 </html>
